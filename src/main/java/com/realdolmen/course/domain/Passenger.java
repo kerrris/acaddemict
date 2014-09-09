@@ -33,6 +33,9 @@ public class Passenger {
     @Temporal(TemporalType.DATE)
     private Date lastFlight;
 
+    @Temporal(TemporalType.DATE)
+    private Date dateLastUpdated;
+
 
     protected Passenger(){
 
@@ -91,5 +94,16 @@ public class Passenger {
 
     public int getFrequentFlyerMiles() {
         return frequentFlyerMiles;
+    }
+
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
+    }
+
+    //dit zorgt ervoor dat deze methode wordt uitgevoerd vlak voor de update en persist
+    @PrePersist
+    @PreUpdate
+    public void beforePersist() {
+            this.dateLastUpdated = new Date();
     }
 }
