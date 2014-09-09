@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Book {
     public static enum Genre{
-        FANTASY, DRAMA, THRILLER, BIOGRAPHY
+        FANTASY, DRAMA, THRILLER
     }
     @Id
     @GeneratedValue
