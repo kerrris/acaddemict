@@ -1,5 +1,8 @@
 package com.realdolmen.course.domain;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Month;
@@ -9,6 +12,7 @@ import java.util.Date;
 
 @Entity
 public class Passenger {
+
     @Id
     @GeneratedValue
     private Long id;
