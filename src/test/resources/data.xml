@@ -1,0 +1,5 @@
+<dataset>
+    <passenger id="1" firstName="George" lastName="Orwell" dateLastUpdated="2014-09-10" dateOfBirth="1988-10-10" frequentFlyerMiles="50" passengerType="1" ssn="564"/>
+    <passenger id="2" firstName="Aldous" lastName="Ruxley" dateLastUpdated="2014-09-9" dateOfBirth="1988-5-10" frequentFlyerMiles="100" passengerType="1" ssn="555"/>
+    <ticket id="1" dateOfDeparture="2014-10-02" destination="London" price="50"/>
+</dataset>

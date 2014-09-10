@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-public class PassengerPersistenceTest extends PersistenceTest {
+public class PassengerPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void passengerCanBePersisted() throws Exception{

@@ -11,12 +11,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-public class TicketPersistenceTicket extends PersistenceTest {
+public class TicketPersistenceTicket extends DataSetPersistenceTest {
 
     @Test
-    public void ticketCanBePersisted(){
+    public void ticketCanBePersisted() {
 
-        Ticket t = new Ticket(new BigDecimal(50.0), new Date(), "Brussel" );
+        Ticket t = new Ticket(new BigDecimal(50.0), new Date(), "Brussel");
         entityManager().persist(t);
         System.out.println(t.getDestination());
         assertNotNull(t.getId());
@@ -24,13 +24,9 @@ public class TicketPersistenceTicket extends PersistenceTest {
     }
 
     @Test
-    public void retrieveTicketById(){
-        Ticket t = new Ticket(new BigDecimal(50.0), new Date(), "Amsterdam" );
-        entityManager().persist(t);
-        entityManager().flush();
-        Ticket t1 = entityManager().find(Ticket.class, 1);
-         System.out.println(t1.getDestination());
-        assertNotNull(t1.getDestination());
+    public void retrieveTicketById() {
+
+        Ticket t = entityManager().find(Ticket.class, 1);
 
     }
 

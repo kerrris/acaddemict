@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertNotNull;
 
-public class BookPersistenceTest extends PersistenceTest {
+public class BookPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void bookCanBePersisted() throws Exception {
