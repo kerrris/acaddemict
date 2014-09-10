@@ -17,6 +17,9 @@ public class Ticket {
     @ManyToOne
     private Passenger passenger;
 
+    @ManyToOne
+    private Flight flight;
+
     public Ticket() {
     }
 

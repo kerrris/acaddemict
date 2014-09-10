@@ -25,28 +25,27 @@ public class Passenger {
     @Column(length = 50)
     private String lastName;
     private int frequentFlyerMiles;
-
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
-
     //transient wil zeggen dat het niet in de database terecht komt
     @Transient
     private int age;
     @Column(nullable = false)
     private PassengerType passengerType;
-
     @Temporal(TemporalType.DATE)
     private Date lastFlight;
-
     @Temporal(TemporalType.DATE)
     private Date dateLastUpdated;
-
     //dit is niet de owner site, ticket is.
-    @OneToMany(mappedBy="passenger")
+    @OneToMany(mappedBy = "passenger")
     List<Ticket> tickets = new ArrayList<Ticket>();
 
-    protected Passenger(){
+
+    @Embedded
+    private Address address;
+
+    protected Passenger() {
 
     }
 
@@ -109,10 +108,18 @@ public class Passenger {
         return dateLastUpdated;
     }
 
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
     //dit zorgt ervoor dat deze methode wordt uitgevoerd vlak voor de update en persist
     @PrePersist
     @PreUpdate
     public void beforePersist() {
-            this.dateLastUpdated = new Date();
+        this.dateLastUpdated = new Date();
     }
 }
