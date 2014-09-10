@@ -1,5 +1,11 @@
 <dataset>
     <passenger id="1" firstName="George" lastName="Orwell" dateLastUpdated="2014-09-10" dateOfBirth="1988-10-10" frequentFlyerMiles="50" passengerType="1" ssn="564"/>
     <passenger id="2" firstName="Aldous" lastName="Ruxley" dateLastUpdated="2014-09-9" dateOfBirth="1988-5-10" frequentFlyerMiles="100" passengerType="1" ssn="555"/>
-    <ticket id="1" dateOfDeparture="2014-10-02" destination="London" price="50"/>
+
+    <flight id="1" number="FEK-054" dateOfDeparture="2014-09-01" dateOfArrival="2014-09-09"/>
+    <flight id="2" number="BEK-854" dateOfDeparture="2014-09-11" dateOfArrival="2014-09-20"/>
+    <ticket id="1" dateOfDeparture="2014-10-02" destination="London" price="50" flight_id="1"/>
+    <ticket id="2" dateOfDeparture="2014-10-15" destination="Brussels" price="40" flight_id="2"/>
+
+
 </dataset>

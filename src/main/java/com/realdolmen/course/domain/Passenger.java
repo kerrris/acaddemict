@@ -37,7 +37,7 @@ public class Passenger {
     private Date lastFlight;
     @Temporal(TemporalType.DATE)
     private Date dateLastUpdated;
-    //dit is niet de owner site, ticket is.
+    //dit is niet de owner side, ticket wel.
     @OneToMany(mappedBy = "passenger")
     List<Ticket> tickets = new ArrayList<Ticket>();
 

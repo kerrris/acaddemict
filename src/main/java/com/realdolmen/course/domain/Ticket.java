@@ -23,12 +23,13 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(BigDecimal price, Date dateOfDeparture, String destination) {
+    public Ticket(BigDecimal price, Date dateOfDeparture, String destination, Flight flight) {
         this.price = price;
         this.dateOfDeparture = dateOfDeparture;
         this.destination = destination;
-    }
+        this.assignFlight(flight);
 
+    }
 
     public Integer getId() {
         return id;
@@ -51,6 +52,11 @@ public class Ticket {
         this.passenger = passenger;
         //dit syncen doe je zo(kan ook met setter in Passenger, nu was het gewoon friendly gemaakt)
         passenger.tickets.add(this);
+    }
+
+    public void assignFlight(Flight flight){
+        this.flight = flight;
+        flight.tickets.add(this);
     }
 
 

@@ -15,7 +15,7 @@ public class Flight {
     @Temporal(TemporalType.DATE)
     private Date dateOfArrival;
 
-    @OneToMany(mappedBy = "flight")
+    @OneToMany(mappedBy = "flight", fetch=FetchType.EAGER)
     List<Ticket> tickets = new ArrayList<Ticket>();
 
     public Flight() {
@@ -57,5 +57,9 @@ public class Flight {
 
     public void setDateOfArrival(Date dateOfArrival) {
         this.dateOfArrival = dateOfArrival;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 }
