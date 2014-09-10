@@ -27,7 +27,15 @@ public class TicketPersistenceTicket extends DataSetPersistenceTest {
     public void retrieveTicketById() {
 
         Ticket t = entityManager().find(Ticket.class, 1);
+    }
 
+    @Test
+    public void ticketCanBeRemoved() throws Exception{
+        Ticket t = entityManager().find(Ticket.class, 1);
+        entityManager().remove(t);
+        Ticket t2 = entityManager().find(Ticket.class, 1);
+
+        assertNull(t2);
     }
 
 }

@@ -7,8 +7,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Passenger {
@@ -40,6 +42,9 @@ public class Passenger {
     @Temporal(TemporalType.DATE)
     private Date dateLastUpdated;
 
+    //dit is niet de owner site, ticket is.
+    @OneToMany(mappedBy="passenger")
+    List<Ticket> tickets = new ArrayList<Ticket>();
 
     protected Passenger(){
 

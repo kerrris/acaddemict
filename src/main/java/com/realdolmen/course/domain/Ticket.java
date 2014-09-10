@@ -1,10 +1,9 @@
 package com.realdolmen.course.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -15,6 +14,8 @@ public class Ticket {
     private BigDecimal price;
     private Date dateOfDeparture;
     private String destination;
+    @ManyToOne
+    private Passenger passenger;
 
     public Ticket() {
     }
@@ -40,6 +41,13 @@ public class Ticket {
 
     public String getDestination() {
         return destination;
+    }
+
+    //TICKET is de owner, dus voor de database wordt enkel naar deze methode gezien, daarom moet je de andere kant ook syncen.
+    public void assignPassenger(Passenger passenger){
+        this.passenger = passenger;
+        //dit syncen doe je zo(kan ook met setter in Passenger, nu was het gewoon friendly gemaakt)
+        passenger.tickets.add(this);
     }
 
 
